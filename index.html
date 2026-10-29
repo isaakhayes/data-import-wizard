@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Data Import Wizard</title>
-<script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+<title>Data Import Wizard | Isaak Hayes, Design Portfolio</title>
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.462.0/dist/umd/lucide.min.js"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -1023,9 +1023,256 @@ input[type="checkbox"], input[type="radio"] {
   .review-grid { grid-template-columns: 1fr 1fr; }
   .footer-nav { padding: 10px 16px; }
 }
+
+/* ===================================================================
+   PORTFOLIO CONTAINER CSS (the dark box at the top). DO NOT CHANGE.
+   It must stay flush against the Salesforce header: no gap, no stroke.
+   =================================================================== */
+.ipc-box{background:#0b1020;color:#cbd5e1;z-index:600;font-family:'Jost',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;line-height:1.4}
+.ipc-box.collapsed{position:sticky;top:0}
+.ipc-bar{display:flex;align-items:center;gap:16px;padding:8px 16px}
+.ipc-brand{color:#fff;font-weight:700;text-decoration:none;font-size:14px;display:flex;gap:8px;align-items:baseline;letter-spacing:.02em}
+.ipc-brand span{font-weight:400;color:#9ca3af;font-size:12px}
+.ipc-right{margin-left:auto;display:flex;gap:18px;align-items:center}
+.ipc-link{font:inherit;background:none;border:0;color:#cbd5e1;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:0}
+.ipc-link:hover{color:#fff}
+.ipc-box a:focus-visible,.ipc-box button:focus-visible{outline:2px solid #a5b4fc;outline-offset:2px}
+.ipc-panel{padding:0 16px 10px;border-top:1px solid #1f2742}
+.ipc-panel.hidden{display:none}
+.ipc-tabs{display:inline-flex;gap:2px;background:#1a2036;padding:3px;border-radius:8px;margin-top:10px}
+.ipc-tabs button{font:inherit;color:#cbd5e1;background:transparent;border:0;padding:5px 13px;border-radius:6px;cursor:pointer;font-weight:500}
+.ipc-tabs button:hover{background:#252d4a}
+.ipc-tabs button[aria-pressed="true"]{background:#e0e7ff;color:#1e1b4b;font-weight:600}
+.ipc-desc{margin:8px 0 0;color:#cbd5e1;max-width:760px}
+@media (max-width:760px){.ipc-box.collapsed{position:static}.ipc-bar{padding:8px 10px;flex-wrap:wrap;gap:6px 14px}.ipc-right{gap:12px}.ipc-panel{padding:0 10px 10px}.ipc-tabs{display:flex;width:100%}.ipc-tabs button{flex:1}}
+
+/* ===================================================================
+   AI VERSION CSS (everything below). OK TO CHANGE.
+   Salesforce Lightning look: Salesforce blue, white cards, calm.
+   =================================================================== */
+.aimark{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#1b96ff,#0176d3 60%,#014486);display:inline-flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(1,118,211,.28);flex:none}
+.aimark svg{width:24px;height:24px;fill:#fff}
+.aimark.sm{width:34px;height:34px;box-shadow:none}.aimark.sm svg{width:18px;height:18px}
+.aim-link{background:none;border:0;color:#0176d3;cursor:pointer;text-decoration:underline;font:inherit;padding:0}
+.aim-link:hover{color:#014486}
+
+/* ---- landing hero ---- */
+.aih{max-width:780px;margin:18px auto 8px;padding:0 16px}
+.aih-card{background:#fff;border:1px solid #e5e5e5;border-radius:12px;padding:38px 36px 26px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.aih-greet{margin:14px 0 6px;color:#444;font-size:14px}
+.aih-h{font-size:34px;line-height:1.15;font-weight:700;color:#032d60;margin:0 auto 10px;max-width:560px;letter-spacing:-.01em}
+.aih-sub{margin:0 auto 24px;max-width:540px;color:#444;font-size:15px;line-height:1.5}
+.aic{display:flex;align-items:center;gap:6px;background:#fff;border:1.5px solid #c9c7c5;border-radius:999px;padding:7px 7px 7px 10px;box-shadow:0 3px 14px rgba(1,118,211,.10);max-width:620px;margin:0 auto;text-align:left}
+.aic:focus-within{border-color:#0176d3;box-shadow:0 3px 18px rgba(1,118,211,.22)}
+.aic input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:16px;padding:9px 6px;color:#181818}
+.aic-clip{background:none;border:0;color:#706e6b;width:36px;height:36px;border-radius:50%;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+.aic-clip:hover{background:#f3f3f3;color:#0176d3}
+.aic-send{background:#0176d3;color:#fff;border:0;width:40px;height:40px;border-radius:50%;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.aic-send:hover{background:#014486}
+.aic button:focus-visible{outline:2px solid #0176d3;outline-offset:2px}
+.aih-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:18px auto 0;max-width:640px}
+.aih-chip{font:inherit;font-size:13.5px;background:#fff;color:#032d60;border:1px solid #c9c7c5;border-radius:999px;padding:9px 16px;cursor:pointer}
+.aih-chip:hover{border-color:#0176d3;background:#f2f9ff}
+.aih-chip.primary{background:#0176d3;border-color:#0176d3;color:#fff}.aih-chip.primary:hover{background:#014486}
+.aih-classic{margin:22px 0 0;font-size:12.5px}
+.aih-trust{list-style:none;display:flex;justify-content:center;gap:34px;flex-wrap:wrap;margin:24px 0 0;padding:0;color:#444;font-size:13.5px}
+.aih-trust li{display:flex;align-items:center;gap:10px}
+.aih-trust span{width:34px;height:34px;border-radius:50%;background:#e8f4ff;color:#0176d3;display:inline-flex;align-items:center;justify-content:center}
+
+/* ---- the experience ---- */
+.aix{max-width:880px;margin:22px auto 30px;padding:0 16px}
+.aix.enter .aix-cap,.aix.enter .aix-stage{animation:aifade .45s ease both}
+.aix-cap{display:flex;align-items:flex-start;gap:12px;position:relative}
+.aix-msgwrap{flex:1;min-height:34px;display:flex;align-items:center}
+.aix-msg{font-size:20px;line-height:1.35;font-weight:600;color:#181818}
+.aix-msg.in{animation:aifade .35s ease both}
+.aix-sub{margin-top:8px;font-size:14px;font-weight:400;color:#7a5000}
+.aix-typing{display:none;gap:5px;align-items:center;height:34px}
+.aix-typing i{width:8px;height:8px;border-radius:50%;background:#aeacaa;animation:aibounce 1s infinite ease-in-out}
+.aix-typing i:nth-child(2){animation-delay:.15s}.aix-typing i:nth-child(3){animation-delay:.3s}
+.aix-earlier{font-size:12.5px;white-space:nowrap;margin-top:8px}
+.aix-hist{background:#fff;border:1px solid #e5e5e5;border-radius:8px;margin:10px 0 0 46px;padding:8px 14px;font-size:13px;color:#444}
+.aix-hist ol{margin:0;padding-left:18px;line-height:1.7}
+.aix-stage{background:#fff;border:1px solid #e5e5e5;border-radius:12px;padding:20px;margin-top:14px;min-height:150px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+.aix-stage.in{animation:aifade .4s ease both}
+.aix-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;min-height:44px}
+.aibtn{padding:12px 22px;font-size:15px;border-radius:999px;justify-content:center}
+.aix-comp{margin-top:20px}
+.aix-comp .aic{max-width:none}
+.aix-foot{margin:14px 0 0;text-align:center;font-size:12.5px}
+@keyframes aifade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes aibounce{0%,80%,100%{transform:translateY(0);opacity:.5}40%{transform:translateY(-5px);opacity:1}}
+
+/* ---- pictures on the stage ---- */
+.ais-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:10px;font-size:14px}
+.ais-h span{color:#706e6b;font-size:12.5px}
+.ais-note{margin:10px 0 0;color:#706e6b;font-size:12.5px;line-height:1.5}
+.ais-scroll{overflow-x:auto}
+.aitb{width:100%;border-collapse:collapse;font-size:13px}
+.aitb th{background:#f3f3f3;text-align:left;padding:8px 10px;font-weight:700;color:#444;white-space:nowrap}
+.aitb td{padding:9px 10px;border-top:1px solid #e5e5e5;vertical-align:top}
+.aitb td.diff{background:#fef9e8}
+.aimiss{border-bottom:2px dotted #c9831b;color:#7a5000;padding-bottom:1px}
+.aichips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
+.aichip{background:#f3f3f3;border:1px solid #e5e5e5;border-radius:999px;padding:4px 12px;font-size:12.5px;color:#444}
+.aimt{display:flex;gap:12px;align-items:center}
+.aimt-ic{width:34px;height:34px;border-radius:50%;background:#eaf5ea;color:#2e844a;display:inline-flex;align-items:center;justify-content:center;font-weight:700}
+.aisk{display:flex;flex-direction:column;gap:12px;padding:6px}
+.aisk i{display:block;height:16px;border-radius:8px;background:linear-gradient(90deg,#f3f3f3 25%,#e8e8e8 37%,#f3f3f3 63%);background-size:400% 100%;animation:aishim 1.3s infinite}
+.aisk i:nth-child(odd){width:92%}.aisk i:nth-child(even){width:70%}
+@keyframes aishim{0%{background-position:100% 50%}100%{background-position:0 50%}}
+.aidrop{border:2px dashed #c9c7c5;border-radius:12px;padding:34px 20px;text-align:center;background:#fafaf9}
+.aidrop.over{border-color:#0176d3;background:#f2f9ff}
+.aidrop p{margin:6px 0}
+.aidrop-ic{display:inline-flex;width:50px;height:50px;border-radius:50%;background:#e8f4ff;color:#0176d3;align-items:center;justify-content:center;margin-bottom:6px}
+.aidrop-ic svg{width:26px;height:26px}
+.aiexp{width:100%;max-width:560px;display:block;margin:0 auto}
+.aitpl{text-align:center;padding:14px 6px}
+.aitpl .aichips{justify-content:center;margin:12px 0 18px}
+.airv-head,.airv-row{display:grid;grid-template-columns:minmax(0,1fr) 36px minmax(0,1.35fr);gap:6px;align-items:stretch}
+.airv-row .aird,.airv-row .airc{margin-bottom:10px}
+.aird{justify-content:center}
+.airv-a{align-self:center;text-align:center;color:#0176d3;margin-bottom:10px}
+.aird{display:flex;flex-direction:column;gap:2px;padding:10px 12px;border:1px solid #e5e5e5;border-radius:8px;margin-bottom:10px;font-size:13px;background:#fafaf9;animation:airowpulse .9s ease both;animation-delay:calc(var(--i)*170ms)}
+.aird span{color:#706e6b;font-size:12px}
+@keyframes airowpulse{0%{background:#fafaf9}35%{background:#d9ecfd}100%{background:#fafaf9}}
+.airc{display:flex;gap:12px;align-items:center;padding:10px 12px;border:1px solid #e5e5e5;border-left:4px solid #0176d3;border-radius:8px;margin-bottom:10px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.05);animation:aifly .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i)*170ms + 250ms)}
+.airc.hl{border-color:#0176d3;box-shadow:0 0 0 3px rgba(1,118,211,.18)}
+@keyframes aifly{from{opacity:0;transform:translateX(-90px) scale(.94)}to{opacity:1;transform:none}}
+.airc-av{width:38px;height:38px;border-radius:50%;background:#e8f4ff;color:#014486;font-weight:700;font-size:13px;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.airc-b{min-width:0;flex:1}
+.airc-n{font-weight:700;color:#181818;font-size:14px}
+.airc-s{color:#444;font-size:12.5px}
+.airc-d{color:#706e6b;font-size:12px;overflow-wrap:anywhere}
+.airc-t{font-size:11px;font-weight:700;border-radius:999px;padding:2px 10px;white-space:nowrap}
+.airc-t.new{background:#e8f4ff;color:#014486}.airc-t.up{background:#eaf5ea;color:#2e6b3e}.airc-t.sk{background:#f3f3f3;color:#706e6b}
+.airv-list{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+.aidc{max-width:460px;margin:8px auto;text-align:center}
+.aidc-top{display:flex;align-items:center;justify-content:center;gap:14px;font-size:17px;font-weight:700}
+.aidc-from{background:#f3f3f3;border:1px solid #e5e5e5;border-radius:8px;padding:10px 18px}
+.aidc-arrow{color:#0176d3}
+.aidc-to{background:#fef5e0;color:#7a5000;border:1px dashed #c9831b;border-radius:8px;padding:10px 18px}
+.aidc-vals{display:flex;gap:8px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.aidc-vals span{background:#fff;border:1px solid #e5e5e5;border-radius:6px;padding:5px 12px;font-size:13px;color:#444}
+.aidc.gone .aidc-from{opacity:.5;text-decoration:line-through}.aidc.gone .aidc-to{background:#f3f3f3;color:#706e6b;border-style:solid}
+.aibar{margin:4px 0}
+.aiprog{height:12px;border-radius:999px;background:#e5e5e5;overflow:hidden;margin:46px 0 8px}
+.aiprog.small{margin:14px 0 4px;height:8px}
+.aiprog-f{height:100%;background:linear-gradient(90deg,#1b96ff,#0176d3);border-radius:999px}
+.aiprog-f.go{width:0;animation:aigrow 1.8s ease-in-out forwards}
+@keyframes aigrow{to{width:100%}}
+.aiempty{text-align:center;padding:36px 10px;color:#444}
+.aiempty span{display:inline-flex;width:54px;height:54px;border-radius:50%;background:#eaf5ea;color:#2e844a;font-size:26px;align-items:center;justify-content:center;margin-bottom:8px}
+.ainote-b{background:#f3f3f3;border-radius:8px;padding:14px 16px;font-size:14px;line-height:1.55;margin-bottom:12px;user-select:text}
+
+/* ---- the avatar in the Salesforce header ---- */
+.aiu{position:relative;margin-left:16px;display:flex;align-items:center}
+.aiu-btn{background:none;border:0;padding:0;cursor:pointer;border-radius:50%;line-height:0}
+.aiu-btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.aiu-av{width:30px;height:30px;border-radius:50%;background:#fff;color:#014486;font-weight:700;font-size:12px;display:inline-flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,.7)}
+.aiu-av.lg{width:46px;height:46px;font-size:16px;background:#e8f4ff;border-color:#e8f4ff}
+.aiu-av.sm{width:28px;height:28px;font-size:11px;background:#e8f4ff;border-color:#e8f4ff;flex:none}
+.aiu-pop{position:absolute;right:0;top:40px;width:300px;background:#fff;color:#181818;border:1px solid #e5e5e5;border-radius:10px;box-shadow:0 8px 28px rgba(0,0,0,.22);padding:16px;z-index:700;font-size:13px;line-height:1.4}
+.aiu-pop[hidden]{display:none}
+.aiu-top{display:flex;gap:12px;align-items:center}
+.aiu-role{color:#706e6b}
+.aiu-tags{margin:10px 0}
+.aiu-tag{display:inline-block;background:#eaf5ea;color:#2e6b3e;border-radius:999px;padding:2px 10px;font-size:11.5px;font-weight:700}
+.aiu-tag.trial{background:#fef5e0;color:#7a5000}
+.aiu-dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:8px 0 12px}
+.aiu-dl dt{color:#706e6b}.aiu-dl dd{margin:0;font-weight:600}
+.aiu-h{border-top:1px solid #e5e5e5;padding-top:10px;margin-top:4px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#706e6b}
+.aiu-sw{display:flex;gap:10px;align-items:center;width:100%;text-align:left;background:none;border:0;padding:8px 6px;border-radius:6px;cursor:pointer;font:inherit}
+.aiu-sw:hover{background:#f3f3f3}
+.aiu-sw small{display:block;color:#706e6b;font-size:11.5px}
+
+.aibar .num.warn{color:#5b43d6}
+.aibar .num.err{color:#a86403}
+@media (prefers-reduced-motion: reduce){.aix *,.aird,.airc,.aisk i,.aiprog-f.go{animation:none!important}.aiprog-f.go{width:100%}.airc{opacity:1}}
+@media (max-width:700px){
+  .aih-card{padding:28px 18px 20px}.aih-h{font-size:26px}.aih-trust{gap:16px;flex-direction:column;align-items:flex-start;max-width:280px;margin-left:auto;margin-right:auto}
+  .aix{padding:0 10px}.aix-msg{font-size:18px}.aix-cap{flex-wrap:wrap}.aix-earlier{margin-left:46px;margin-top:0}.aix-hist{margin-left:0}
+  .airv-head{display:none}.airv-row{grid-template-columns:1fr;gap:2px;margin-bottom:6px}.airv-a{transform:rotate(90deg);margin:0 0 4px}.airv-list{grid-template-columns:1fr}
+  .aix-actions{flex-direction:column}.aibtn{width:100%}
+  .aiu-pop{position:fixed;right:10px;left:10px;width:auto;top:auto}
+  .aitb{font-size:12px}
+}
+
+/* ===== POLISH: blue means "you can click this". AI is violet. Generous padding. Softer, rounder, more consumer. ===== */
+body.aimode{background:#f7f6fb}
+.aimark{width:auto;height:auto;background:none;box-shadow:none;border-radius:0}
+.aimark svg{width:44px;height:44px;fill:none;filter:drop-shadow(0 6px 14px rgba(124,92,255,.35))}
+.aimark.sm svg{width:30px;height:30px;filter:drop-shadow(0 3px 8px rgba(124,92,255,.3))}
+.aih{margin:34px auto 12px}
+.aih-card{padding:58px 52px 40px;border-radius:24px;border-color:#ebe9f3;background:linear-gradient(180deg,#faf9ff 0%,#fff 42%);box-shadow:0 18px 50px rgba(52,40,120,.08)}
+.aih-greet{margin:22px 0 12px;font-size:15px;color:#5b5a6b}
+.aih-h{font-size:44px;line-height:1.1;margin-bottom:16px;max-width:600px;color:#1d1b3a}
+.aih-sub{font-size:16.5px;line-height:1.6;max-width:520px;margin-bottom:36px;color:#5b5a6b}
+.aic{max-width:660px;padding:9px 9px 9px 16px;border-color:#dedce8;box-shadow:0 10px 34px rgba(52,40,120,.10),0 1px 3px rgba(0,0,0,.05)}
+.aic input{font-size:17px;padding:13px 8px}
+.aic-send{width:46px;height:46px}.aic-clip{width:40px;height:40px}
+.aih-chips{gap:12px;margin-top:26px;max-width:680px}
+.aih-chip{padding:11px 20px;font-size:14px;border-color:#dedce8;color:#2d2b4a}
+.aih-chip:hover{background:#f6f4ff;border-color:#0176d3}
+.aih-classic{margin-top:30px;font-size:13px}
+.aih-trust{margin:40px 0 12px;gap:48px;color:#5b5a6b}
+.aih-trust span{width:38px;height:38px;background:#f1eefe;color:#6f5bff}
+.aix{max-width:920px;margin:40px auto 56px;padding:0 24px}
+.aix-cap{gap:16px}
+.aix-msg{font-size:23px;line-height:1.35;color:#1d1b3a}
+.aix-stage{padding:32px;border-radius:24px;margin-top:26px;border-color:#ebe9f3;box-shadow:0 14px 42px rgba(52,40,120,.07)}
+.aix-actions{margin-top:28px;gap:12px}
+.aibtn{padding:15px 30px;font-size:15.5px}
+.aix-comp{margin-top:34px}
+.aix-foot{margin-top:22px}
+.aix-hist{margin-left:50px;border-radius:12px;padding:12px 18px}
+.ais-h{margin-bottom:16px;font-size:15px}
+.ais-note{margin-top:14px}
+.aitb th{padding:11px 16px}.aitb td{padding:14px 16px}
+.aird{padding:15px 18px;border-radius:14px;margin-bottom:12px;border-color:#ebe9f3;background:#fbfaff}
+.airc{padding:15px 18px;border-radius:14px;gap:14px;margin-bottom:12px;border:1px solid #ebe9f3;box-shadow:0 4px 14px rgba(52,40,120,.06)}
+.airc.hl{border-color:#8a76ff;box-shadow:0 0 0 4px rgba(124,92,255,.16),0 6px 18px rgba(52,40,120,.10)}
+.airc-av{width:42px;height:42px;background:#efeaff;color:#4b36c9}
+.airc-t.new{background:#efeaff;color:#4b36c9}
+.airv-head,.airv-row{gap:10px}
+.airv-a,.aidc-arrow{color:#8a76ff}
+.aidc{padding:10px 0}.aidc-from{padding:12px 22px}.aidc-to{padding:12px 22px}
+.aidrop{border-radius:20px;padding:46px 24px;border-color:#d4d0e6;background:#fcfbff}
+.aidrop-ic{background:#f1eefe;color:#6f5bff;width:58px;height:58px;margin-bottom:10px}
+.aiprog-f{background:linear-gradient(90deg,#6f5bff,#c25cf0)}
+.aitpl{padding:22px 10px}
+.aichip{background:#f6f4ff;border-color:#ebe9f3;padding:5px 14px}
+.aibar .success-stat{padding-top:20px;padding-bottom:20px}
+.aiu-pop{border-radius:14px;padding:20px}
+@media (max-width:700px){
+  .aih{margin-top:18px}.aih-card{padding:38px 22px 30px;border-radius:20px}.aih-h{font-size:31px}.aih-sub{font-size:15px;margin-bottom:28px}
+  .aih-trust{gap:18px;margin-top:30px}
+  .aix{margin:24px auto 40px;padding:0 16px}.aix-msg{font-size:19px}.aix-stage{padding:22px 18px;border-radius:18px}.aibtn{padding:15px 22px}
+  .aitb th,.aitb td{padding:10px 12px}.aird,.airc{padding:13px 14px}
+}
 </style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+<!-- ===== PORTFOLIO CONTAINER (dark box at the top). DO NOT CHANGE. ===== -->
+<div class="ipc-box" id="ipcBox">
+  <div class="ipc-bar" role="banner">
+    <a class="ipc-brand" href="https://isaakhayes.github.io/">Isaak Hayes <span>Design Portfolio</span></a>
+    <div class="ipc-right">
+      <button type="button" class="ipc-link" id="ipcReset">Start over</button>
+      <a class="ipc-link" href="https://isaakhayes.github.io/">Back to portfolio</a>
+      <button type="button" class="ipc-link" id="ipcToggle" aria-expanded="true" aria-controls="ipcPanel">Hide</button>
+    </div>
+  </div>
+  <div class="ipc-panel" id="ipcPanel">
+    <div class="ipc-tabs" role="group" aria-label="Choose a version of the demo">
+      <button type="button" id="ipcTabShipped" aria-pressed="true">Shipped at Salesforce</button>
+      <button type="button" id="ipcTabAI" aria-pressed="false">AI-forward concept</button>
+    </div>
+  </div>
+</div>
+<!-- ===== END PORTFOLIO CONTAINER. EVERYTHING BELOW, UNTIL THE LAST <script>, IS THE ORIGINAL SALESFORCE WIZARD. DO NOT CHANGE. ===== -->
+
 
 <header class="app-header">
   <div class="sf-logo">sales<strong>force</strong></div>
@@ -2153,6 +2400,509 @@ goTo('landing');
 buildFAQ();
 buildHistory();
 lucide.createIcons();
+</script>
+<script>
+/* ===== Portfolio container + AI concept layer (added by Isaak Hayes) ===== */
+(function(){
+  'use strict';
+  var MODE = 'shipped';
+  try {
+    var saved = sessionStorage.getItem('ipcMode'); sessionStorage.removeItem('ipcMode');
+    if (location.hash === '#ai') MODE = 'ai'; else if (saved === 'ai') MODE = 'ai';
+  } catch (e) { if (location.hash === '#ai') MODE = 'ai'; }
+  function remember(m){ try { sessionStorage.setItem('ipcMode', m); } catch (e) {} }
+  document.body.setAttribute('data-mode', MODE);
+  var $ = function(id){ return document.getElementById(id); };
+
+  /* ===================================================================
+     PORTFOLIO CONTAINER JS (tabs, blurb, Hide and Show, Start over). DO NOT CHANGE.
+     MODE is 'shipped' or 'ai'. It is read once, then the page reloads when the tab changes.
+     =================================================================== */
+  /* ---- signature box: tabs, blurb, hide and show ---- */
+  function mark(){}
+  function isHidden(){ return $('ipcPanel').classList.contains('hidden'); }
+  function setHidden(h, keep){
+    $('ipcPanel').classList.toggle('hidden', h);
+    $('ipcBox').classList.toggle('collapsed', h);
+    $('ipcToggle').textContent = h ? 'Show' : 'Hide';
+    $('ipcToggle').setAttribute('aria-expanded', h ? 'false' : 'true');
+    if (keep) { try { sessionStorage.setItem('ipcHidden', h ? '1' : '0'); } catch (e) {} }
+  }
+  $('ipcToggle').addEventListener('click', function(){ setHidden(!isHidden(), true); });
+  $('ipcReset').addEventListener('click', function(){ remember(MODE); location.reload(); });
+  $('ipcTabShipped').setAttribute('aria-pressed', MODE === 'shipped' ? 'true' : 'false');
+  $('ipcTabAI').setAttribute('aria-pressed', MODE === 'ai' ? 'true' : 'false');
+  $('ipcTabShipped').addEventListener('click', function(){ if (MODE !== 'shipped') { remember('shipped'); try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {} location.reload(); } });
+  $('ipcTabAI').addEventListener('click', function(){ if (MODE !== 'ai') { remember('ai'); try { location.hash = '#ai'; } catch (e) {} location.reload(); } });
+  var hid = false; try { hid = sessionStorage.getItem('ipcHidden') === '1'; } catch (e) {}
+  setHidden(hid, false);
+
+  /* ===================================================================
+     HOOKS INTO THE ORIGINAL WIZARD. Keep. You may extend, never remove.
+     The original wizard code is untouched. Do not edit it.
+     =================================================================== */
+  /* ---- hooks into the original demo (the original code is untouched) ---- */
+  var _goTo = goTo, _simulateUpload = simulateUpload, _applyMapping = applyMapping;
+  window.goTo = function(s){
+    if (MODE === 'ai' && typeof aiGoTo === 'function' && aiGoTo(s)) return;
+    _goTo(s);
+  };
+  window.simulateUpload = function(){ _simulateUpload(); };
+  window.applyMapping = function(){ _applyMapping(); if (MODE === 'ai' && typeof aiAfterMap === 'function') aiAfterMap(); };
+
+  if (MODE !== 'ai') return;
+
+  /* ===================================================================
+     AI VERSION JS (everything below to the end). OK TO CHANGE.
+     Runs only when MODE is 'ai'. The Shipped version never runs it.
+
+     STATE MAP. One AI message at a time. The viewer steps through with buttons.
+     landing    greeting, headline, one chat box, four chips. No Start button.
+                Typing, a chip, or a file drop expands the box into the experience.
+     source     sheet: drop zone. other: where is it, then an export picture. help: three choices. template: a real CSV.
+     reading    skeleton, then
+     peek       first 5 rows of the file.          [Looks right] [They are leads]
+     reveal     5 rows become 5 Salesforce records. [Yes, that is her] [Something looks off]
+     decision   the one unmapped column (Sir Name).   [Ignore it] [Map it myself]
+     matches    confident matches, accepted.        [Continue] [See how I matched them]
+     dupes      one duplicate side by side.         [Update them] [Skip them]
+     ready      counts and rows set aside.          Dana: [Try 5 first] first. Others: [Import N] first.
+     test       the 5 records.                      [Import the rest] [Undo the 5]
+     importing  progress, then
+     done       counts.                             [View imported records] [Undo this import] [Start another import]
+     records    8 people, each Created or Updated.
+     undone     confirmation.                       [Start another import]
+     Users: Dana (first import, trial org), Noor (admin, returning, "same as last time"), Avery (marketing, limited permissions).
+     Typed text goes through a small keyword router. Unknown text gets one friendly line and the same buttons stay.
+     =================================================================== */
+
+  var FAST = /[?&]fast/.test(location.search);
+  var REDUCED = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var ORIG = JSON.parse(JSON.stringify(fields));
+  var classic = false, S = null, U = null;
+  var H = {};
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]; }); }
+  function wait(ms){ return new Promise(function(r){ setTimeout(r, FAST ? 3 : ms); }); }
+  function n(x){ return x.toLocaleString('en-US'); }
+  function strip(t){ return String(t).replace(/<[^>]+>/g, ''); }
+  function ic(p){ return '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + p + '</svg>'; }
+  var SPARK = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="url(#aiGrad)" d="M12 2.5l1.7 5.1 5.1 1.7-5.1 1.7L12 16.1l-1.7-5.1L5.2 9.3l5.1-1.7z"/><path fill="url(#aiGrad)" d="M18.5 14l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></svg>';
+  var ARROW = ic('<path d="M5 12h14M13 6l6 6-6 6"/>');
+
+  /* ---- the people ---- */
+  var USERS = {
+    dana:  { id: 'dana',  name: 'Dana Robinson', first: 'Dana',  ini: 'DR', role: 'Sales Rep',            org: 'Trial org',      imports: 0,  can: ['Leads', 'Contacts'],             type: 'Contacts', greet: 'Welcome, Dana. This looks like your first import, so I\u2019ll walk you through it.' },
+    noor:  { id: 'noor',  name: 'Noor Rahman',   first: 'Noor',  ini: 'NR', role: 'System Administrator', org: 'Production org', imports: 12, can: ['Leads', 'Contacts', 'Accounts'], type: 'Contacts', greet: 'Welcome back, Noor. Last time you imported Q3 Webinar Leads. Same kind of file?' },
+    avery: { id: 'avery', name: 'Avery Quinn',   first: 'Avery', ini: 'AQ', role: 'Marketing User',       org: 'Production org', imports: 3,  can: ['Leads', 'Campaign members'],     type: 'Leads',    greet: 'Hi Avery. You can import leads and campaign members.' }
+  };
+  var uid = 'dana'; try { uid = sessionStorage.getItem('aiUser') || 'dana'; } catch (e) {} if (!USERS[uid]) uid = 'dana';
+  U = USERS[uid];
+  function can(x){ return U.can.indexOf(x) > -1; }
+
+  var PEOPLE = [
+    { f: 'Maria',  l: 'Chen',    co: 'Acme Co',     t: 'VP Marketing',     re: 'M.Chen@Acme.com',            rp: '415-555-0192', e: 'm.chen@acme.com',            p: '(415) 555-0192', dup: true },
+    { f: 'Jordan', l: 'Ellis',   co: 'Brightpath',  t: 'Head of Growth',   re: 'Jordan.Ellis@BrightPath.io', rp: '415.555.0143', e: 'jordan.ellis@brightpath.io', p: '(415) 555-0143' },
+    { f: 'Aiyana', l: 'Brooks',  co: 'Harbor Lane', t: 'Operations Lead',  re: 'abrooks@harborlane.com',     rp: '(510) 555-0171', e: 'abrooks@harborlane.com',   p: '(510) 555-0171' },
+    { f: 'Tomas',  l: 'Rivera',  co: 'Kestrel',     t: 'Founder',          re: 't.rivera@kestrelhq.com',     rp: '650-555-0129', e: 't.rivera@kestrelhq.com',     p: '(650) 555-0129' },
+    { f: 'Priya',  l: 'Nair',    co: 'Summit Labs', t: 'Director of Sales', re: 'Priya@SummitLabs.co',       rp: '4085550166',   e: 'priya@summitlabs.co',        p: '(408) 555-0166', dup: true },
+    { f: 'Lena',   l: 'Park',    co: 'Tidewater',   t: 'Product Manager',  re: 'lena.park@tidewater.io',     rp: '415-555-0114', e: 'lena.park@tidewater.io',     p: '(415) 555-0114' },
+    { f: 'Omar',   l: 'Reyes',   co: 'Lumen',       t: 'Designer',         re: 'omar@lumen.co',              rp: '510-555-0188', e: 'omar@lumen.co',              p: '(510) 555-0188' },
+    { f: 'Sofia',  l: 'Alvarez', co: 'Northwind',   t: 'CEO',              re: 'sofia@northwindco.com',      rp: '925-555-0102', e: 'sofia@northwindco.com',      p: '(925) 555-0102' }
+  ];
+
+  /* ---- numbers ---- */
+  function noun(){ return S.type === 'Leads' ? 'leads' : S.type === 'Campaign members' ? 'campaign members' : 'contacts'; }
+  function C(){ var up = S.dupe === 'update'; return { created: 3823, updated: up ? 18 : 0, skipped: up ? 0 : 18, aside: 6, total: 3823 + (up ? 18 : 0) }; }
+  function testIdx(){ return S.dupe === 'update' ? [0, 1, 2, 3, 4] : [1, 2, 3, 5, 6]; }
+  function testDone(){ var up = S.dupe === 'update'; return { created: up ? 3 : 5, updated: up ? 2 : 0 }; }
+  function restCount(){ var t = testDone(); return C().total - t.created - t.updated; }
+  function result(p){ return p.dup ? (S.dupe === 'update' ? 'Updated' : 'Skipped') : 'Created'; }
+
+  /* ---- one-time page setup ---- */
+  document.body.classList.add('aimode');
+  (function(){ var g = document.createElement('div'); g.innerHTML = '<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="aiGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6f5bff"/><stop offset="1" stop-color="#c25cf0"/></linearGradient></defs></svg>'; document.body.appendChild(g.firstChild); })();
+  document.title = 'Data Import with Salesforce AI | Isaak Hayes, Design Portfolio';
+  var htl = document.querySelector('.app-header-title'); if (htl) htl.textContent = 'Data Import';
+  (function(){
+    var land = $('page-landing');
+    var h1 = land.querySelector('.landing-top h1'); if (h1) h1.textContent = 'Data Import';
+    var wc = land.querySelector('.wizard-card'); if (wc) wc.style.display = 'none';
+    faqs.length = 0;
+    [
+      ['What will the AI do?', 'It reads your file, matches your columns to Salesforce fields, tidies formats like phone numbers, and shows you a few real examples before anything is saved.'],
+      ['Is anything saved before I say so?', 'No. Nothing is saved until you approve it. You can also try just 5 people first.'],
+      ['Can I undo an import?', 'Yes. You can undo an import for 7 days, and you can undo a 5-person test right away.'],
+      ['What if I don\u2019t have a file yet?', 'Say so. The AI shows you how to get your data out of another system, or gives you a template to fill in.'],
+      ['Can I do it myself?', 'Yes. Open the classic wizard any time for full control over every field and option.']
+    ].forEach(function(p){ faqs.push({ q: p[0], a: p[1] }); });
+    var fa = $('faqAccordion'); if (fa) { fa.innerHTML = ''; buildFAQ(); }
+    lucide.createIcons();
+
+    var hero = document.createElement('section'); hero.id = 'aiHero'; hero.className = 'aih'; hero.setAttribute('aria-labelledby', 'aihTitle');
+    hero.innerHTML = '<div class="aih-card" id="aihCard">' +
+      '<span class="aimark">' + SPARK + '</span>' +
+      '<p class="aih-greet" id="aihGreet"></p>' +
+      '<h2 class="aih-h" id="aihTitle">Get your data into Salesforce, safely.</h2>' +
+      '<p class="aih-sub">Tell the AI what you\u2019re bringing in. It does the matching, shows you what will change, and saves nothing until you say so.</p>' +
+      '<div id="aihCompHost"></div>' +
+      '<div class="aih-chips" id="aihChips"></div>' +
+      '<p class="aih-classic"><button type="button" class="aim-link" data-act="classic">Prefer to do it yourself? Use the classic wizard.</button></p></div>' +
+      '<ul class="aih-trust">' +
+      '<li><span>' + ic('<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>') + '</span>Nothing is saved until you approve</li>' +
+      '<li><span>' + ic('<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/>') + '</span>Every change can be undone</li>' +
+      '<li><span>' + ic('<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>') + '</span>Try 5 people first</li></ul>';
+    var top = land.querySelector('.landing-top'); top.insertAdjacentElement('afterend', hero);
+
+    var comp = document.createElement('form'); comp.id = 'aiForm'; comp.className = 'aic'; comp.setAttribute('autocomplete', 'off');
+    comp.innerHTML = '<button type="button" class="aic-clip" id="aiClip" aria-label="Choose a file">' + ic('<path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/>') + '</button>' +
+      '<input id="aiInput" type="text" placeholder="Where is your data coming from?" aria-label="Tell the AI what you want to do">' +
+      '<button type="submit" class="aic-send" aria-label="Send">' + ic('<path d="M12 19V5"/><path d="m5 12 7-7 7 7"/>') + '</button>';
+    $('aihCompHost').appendChild(comp);
+
+    var fi = document.createElement('input'); fi.type = 'file'; fi.id = 'aiFile'; fi.hidden = true; fi.accept = '.csv,.xls,.xlsx'; document.body.appendChild(fi);
+
+    var pg = document.createElement('div'); pg.className = 'page'; pg.id = 'page-ai';
+    pg.innerHTML = '<div class="aix" id="aix">' +
+      '<div class="aix-cap"><span class="aimark sm">' + SPARK + '</span>' +
+        '<div class="aix-msgwrap"><div class="aix-msg" id="aiMsg" aria-live="polite"></div><div class="aix-typing" id="aiTyping" aria-hidden="true"><i></i><i></i><i></i></div></div>' +
+        '<button type="button" class="aim-link aix-earlier" id="aiEarlier" aria-expanded="false">Earlier messages</button></div>' +
+      '<div class="aix-hist" id="aiHist" hidden></div>' +
+      '<div class="aix-stage" id="aiStage"></div>' +
+      '<div class="aix-actions" id="aiActions"></div>' +
+      '<div class="aix-comp" id="aiCompHost"></div>' +
+      '<p class="aix-foot"><button type="button" class="aim-link" data-act="classic">Open the classic wizard</button></p></div>';
+    document.querySelector('main.main').appendChild(pg);
+
+    /* the profile avatar in the Salesforce header: Salesforce already knows who you are */
+    var hh = document.querySelector('.header-help');
+    var au = document.createElement('div'); au.className = 'aiu'; au.id = 'aiu';
+    if (hh) hh.insertAdjacentElement('afterend', au); else document.querySelector('.app-header').appendChild(au);
+  })();
+
+  /* ---- the avatar and the card behind it ---- */
+  function renderAvatar(){
+    var others = Object.keys(USERS).filter(function(k){ return k !== U.id; }).map(function(k){ var o = USERS[k]; return '<button type="button" class="aiu-sw" data-user="' + o.id + '"><span class="aiu-av sm">' + o.ini + '</span><span><strong>' + o.name + '</strong><small>' + o.role + ', ' + o.org + '</small></span></button>'; }).join('');
+    $('aiu').innerHTML = '<button type="button" class="aiu-btn" id="aiuBtn" aria-haspopup="true" aria-expanded="false" aria-label="Your profile: ' + esc(U.name) + '"><span class="aiu-av">' + U.ini + '</span></button>' +
+      '<div class="aiu-pop" id="aiuPop" hidden>' +
+      '<div class="aiu-top"><span class="aiu-av lg">' + U.ini + '</span><div><strong>' + U.name + '</strong><div class="aiu-role">' + U.role + '</div></div></div>' +
+      '<div class="aiu-tags"><span class="aiu-tag' + (U.org === 'Trial org' ? ' trial' : '') + '">' + U.org + '</span></div>' +
+      '<dl class="aiu-dl"><dt>Imports so far</dt><dd>' + U.imports + '</dd><dt>You can import</dt><dd>' + U.can.join(', ') + '</dd></dl>' +
+      '<div class="aiu-h">Switch user</div>' + others + '</div>';
+  }
+  function popOpen(o){ var p = $('aiuPop'), b = $('aiuBtn'); if (!p) return; p.hidden = !o; b.setAttribute('aria-expanded', o ? 'true' : 'false'); }
+
+  /* ---- landing ---- */
+  function chipsFor(){
+    var c = [{ id: 'sheet', label: 'Import a spreadsheet' }, { id: 'other', label: 'Move data from another system' }, { id: 'update', label: 'Update records I already have' }, { id: 'help', label: 'Help me, I\u2019m not sure' }];
+    if (U.imports > 3 && U.id === 'noor') c.unshift({ id: 'same', label: 'Same as last time', primary: true });
+    return c;
+  }
+  function renderHero(){
+    $('aihGreet').textContent = U.greet;
+    $('aihChips').innerHTML = chipsFor().map(function(c){ return '<button type="button" class="aih-chip' + (c.primary ? ' primary' : '') + '" data-chip="' + c.id + '">' + esc(c.label) + '</button>'; }).join('');
+  }
+  function newState(){ return { step: 'landing', stepName: 'landing', busy: false, acts: [], kw: [], hist: [], type: U.type, dupe: 'update', same: false, matchOpen: false, noEdit: U.id === 'avery', ignoreSir: false, tested: false }; }
+
+  function showExperience(){
+    document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
+    $('page-ai').classList.add('active');
+    $('progressBar').style.display = 'none'; $('footerNav').style.display = 'none';
+    currentStep = 'ai'; window.scrollTo(0, 0);
+  }
+  function showLanding(){ _goTo('landing'); document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); }); $('page-landing').classList.add('active'); window.scrollTo(0, 0); }
+  function expand(){
+    var comp = $('aiForm'), first = comp.getBoundingClientRect();
+    showExperience();
+    $('aiCompHost').appendChild(comp); $('aiInput').placeholder = 'Ask or change something';
+    var last = comp.getBoundingClientRect();
+    if (!REDUCED && comp.animate && first.width && !FAST) {
+      comp.animate([{ transform: 'translate(' + (first.left - last.left) + 'px,' + (first.top - last.top) + 'px)', width: first.width + 'px' }, { transform: 'none', width: last.width + 'px' }], { duration: 480, easing: 'cubic-bezier(.2,.8,.2,1)' });
+    }
+    $('aix').classList.remove('enter'); void $('aix').offsetWidth; $('aix').classList.add('enter');
+  }
+  function resetToLanding(){
+    fields.splice(0, fields.length); ORIG.forEach(function(f){ fields.push(JSON.parse(JSON.stringify(f))); });
+    S = newState();
+    $('aihCompHost').appendChild($('aiForm')); $('aiInput').placeholder = 'Where is your data coming from?'; $('aiInput').value = '';
+    $('aiMsg').innerHTML = ''; $('aiStage').innerHTML = ''; $('aiActions').innerHTML = ''; $('aiHist').hidden = true; $('aiEarlier').setAttribute('aria-expanded', 'false');
+    renderHero(); renderAvatar(); showLanding();
+  }
+  function setUser(id){ U = USERS[id]; try { sessionStorage.setItem('aiUser', id); } catch (e) {} resetToLanding(); }
+
+  /* ---- the engine: one message, one picture, a few buttons ---- */
+  function typing(on){ $('aiTyping').style.display = on ? 'flex' : 'none'; $('aiMsg').style.display = on ? 'none' : ''; }
+  function setMsg(t){ var m = $('aiMsg'); m.classList.remove('in'); m.innerHTML = t; void m.offsetWidth; m.classList.add('in'); S.hist.push(strip(t)); renderHist(); }
+  function setStage(html){ var st = $('aiStage'); st.innerHTML = html; st.classList.remove('in'); void st.offsetWidth; st.classList.add('in'); }
+  function renderHist(){ var h = $('aiHist'); if (!h) return; h.innerHTML = '<ol>' + S.hist.slice(-14).map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('') + '</ol>'; }
+  function setActs(list, kw){
+    S.acts = list || []; S.kw = kw || [];
+    var a = $('aiActions'); a.innerHTML = '';
+    S.acts.forEach(function(x){
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'btn aibtn ' + (x.primary ? 'btn-brand' : 'btn-neutral'); b.textContent = x.label; b.setAttribute('data-id', x.id);
+      b.addEventListener('click', function(){ choose(x); }); a.appendChild(b);
+    });
+  }
+  function choose(x){ if (S.busy) return; S.hist.push('You: ' + x.label); var kw = S.kw; setActs([]); S.kw = kw; if (H[x.id]) H[x.id](x); }
+  async function step(name, msg, stageHtml, acts, kw, delay){
+    var me = S; S.busy = true; S.stepName = name;
+    if (stageHtml != null) setStage(stageHtml);
+    setActs([]); typing(true); await wait(delay == null ? 900 : delay);
+    if (S !== me) return;
+    typing(false); setMsg(msg); setActs(acts, kw); S.busy = false;
+  }
+  async function say(msg, ms){ var me = S; S.busy = true; typing(false); setMsg(msg); await wait(ms); if (S !== me) return false; S.busy = false; return true; }
+
+  /* ---- pictures (the stage) ---- */
+  function skeleton(){ return '<div class="aisk"><i></i><i></i><i></i><i></i><i></i></div>'; }
+  function stageDrop(){ return '<div class="aidrop" id="aiDrop"><span class="aidrop-ic">' + ic('<path d="M12 16V4m0 0l-4 4m4-4l4 4M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/>') + '</span><p><strong>Drop your spreadsheet here</strong></p><p class="ais-note">CSV or Excel</p><button type="button" class="btn btn-neutral" data-act="choose">Choose a file</button></div>'; }
+  function stageExport(){
+    return '<svg class="aiexp" viewBox="0 0 560 190" role="img" aria-label="An illustration: in your other system, open Contacts and choose Export">' +
+      '<rect x="1" y="1" width="360" height="188" rx="10" fill="#fff" stroke="#c9c7c5"/><rect x="1" y="1" width="86" height="188" rx="10" fill="#f3f3f3" stroke="#c9c7c5"/>' +
+      '<rect x="14" y="20" width="58" height="9" rx="4" fill="#dddbda"/><rect x="10" y="44" width="68" height="22" rx="5" fill="#e8f4ff"/><rect x="18" y="51" width="46" height="8" rx="4" fill="#0176d3"/>' +
+      '<rect x="14" y="80" width="52" height="8" rx="4" fill="#dddbda"/><rect x="14" y="100" width="46" height="8" rx="4" fill="#dddbda"/>' +
+      '<rect x="104" y="18" width="130" height="16" rx="8" fill="#f3f3f3"/><rect x="262" y="13" width="84" height="26" rx="6" fill="#fff" stroke="#0176d3" stroke-width="2"/>' +
+      '<text x="304" y="30" text-anchor="middle" font-size="12" font-weight="700" fill="#0176d3">Export</text>' +
+      '<rect x="104" y="62" width="242" height="9" rx="4" fill="#ecebea"/><rect x="104" y="84" width="200" height="9" rx="4" fill="#ecebea"/><rect x="104" y="106" width="226" height="9" rx="4" fill="#ecebea"/><rect x="104" y="128" width="180" height="9" rx="4" fill="#ecebea"/>' +
+      '<path d="M376 95h56" stroke="#0176d3" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M424 87l10 8-10 8" stroke="#0176d3" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>' +
+      '<rect x="452" y="55" width="76" height="92" rx="7" fill="#fff" stroke="#c9c7c5"/><rect x="466" y="72" width="48" height="6" rx="3" fill="#ecebea"/><rect x="466" y="86" width="40" height="6" rx="3" fill="#ecebea"/>' +
+      '<text x="490" y="128" text-anchor="middle" font-size="14" font-weight="700" fill="#2e844a">.csv</text></svg>' +
+      '<p class="ais-note" style="text-align:center">An example. Your other system will look a little different.</p>';
+  }
+  function stageTemplate(){
+    return '<div class="aitpl"><p><strong>Template with the columns Salesforce expects</strong></p><div class="aichips"><span class="aichip">First Name</span><span class="aichip">Last Name</span><span class="aichip">Company</span><span class="aichip">Title</span><span class="aichip">Email</span><span class="aichip">Phone Number</span><span class="aichip">Department</span><span class="aichip">Industry</span></div><button type="button" class="btn btn-brand" data-act="dl">Download the template</button></div>';
+  }
+  function stagePeek(){
+    var rows = PEOPLE.slice(0, 5).map(function(p){ return '<tr><td>' + p.f + '</td><td>' + p.l + '</td><td>' + p.co + '</td><td>' + esc(p.re) + '</td><td>' + esc(p.rp) + '</td></tr>'; }).join('');
+    return '<div class="ais-h"><strong>LinkedInExport_Q4.csv</strong><span>3,847 people, 11 columns</span></div><div class="ais-scroll"><table class="aitb"><tr><th>First Name</th><th>Last Name</th><th>Company</th><th>Email</th><th>Phone Number</th></tr>' + rows + '</table></div><p class="ais-note">The first 5 rows of your file.</p>';
+  }
+  function card(p, i, tagText, hl){
+    var up = /pdat/i.test(tagText), sk = /kipp/i.test(tagText);
+    return '<div class="airc' + (hl ? ' hl' : '') + '" style="--i:' + i + '"><div class="airc-av">' + p.f[0] + p.l[0] + '</div><div class="airc-b"><div class="airc-n">' + p.f + ' ' + p.l + '</div><div class="airc-s">' + p.t + ', ' + p.co + '</div><div class="airc-d">' + p.e + ' \u00B7 ' + p.p + '</div></div><span class="airc-t ' + (up ? 'up' : sk ? 'sk' : 'new') + '">' + tagText + '</span></div>';
+  }
+  function stageReveal(){
+    var rows = PEOPLE.slice(0, 5).map(function(p, i){
+      return '<div class="airv-row"><div class="aird" style="--i:' + i + '"><strong>' + p.f + ' ' + p.l + '</strong><span>' + esc(p.rp) + '</span></div><div class="airv-a" aria-hidden="true">' + ARROW + '</div>' + card(p, i, p.dup ? 'Will update existing' : 'Will be created', i === 0) + '</div>';
+    }).join('');
+    return '<div class="airv-head"><div class="ais-h"><strong>Your spreadsheet</strong></div><span></span><div class="ais-h"><strong>In Salesforce</strong><span>' + esc(S.type) + '</span></div></div>' + rows + '<p class="ais-note">I tidied the phone numbers and emails as I went.</p>';
+  }
+  function stageDecision(){
+    return '<div class="aidc"><div class="aidc-top"><span class="aidc-from">Sir Name</span><span class="aidc-arrow">' + ARROW + '</span><span class="aidc-to">?</span></div><div class="aidc-vals"><span>Sir Name</span><span>Sir Name</span><span>Sir Name</span></div><p class="ais-note">Sample values from your file. Every row says the same thing.</p></div>';
+  }
+  function stageIgnored(){ return '<div class="aidc gone"><div class="aidc-top"><span class="aidc-from">Sir Name</span><span class="aidc-arrow">' + ARROW + '</span><span class="aidc-to">Not imported</span></div></div>'; }
+  function reasonFor(f){
+    if (f.csv === 'Company') return 'It\u2019s a company name';
+    if (/email/i.test(f.csv)) return 'The values look like emails';
+    if (/phone/i.test(f.csv)) return 'The values look like phone numbers';
+    if (f.csv === 'Industry') return 'The values look like industries';
+    return 'The name matches';
+  }
+  function stageMatches(){
+    var ok = fields.filter(function(f){ return f.status === 'mapped'; });
+    var head = '<div class="aimt"><div class="aimt-ic">\u2713</div><div><strong>' + ok.length + ' columns matched</strong><div class="ais-note" style="margin:2px 0 0">Accepted for you. Look closer any time.</div></div></div><div class="aichips">' + ok.map(function(f){ return '<span class="aichip">' + esc(f.sf) + '</span>'; }).join('') + '</div>';
+    if (!S.matchOpen) return head;
+    var rows = fields.map(function(f, i){
+      var to = f.status === 'mapped' ? esc(f.sf) : '<em>Not imported</em>';
+      var why = f.status === 'mapped' ? reasonFor(f) : (S.noEdit && f.csv === 'Industry' ? 'Your role can\u2019t edit Industry' : 'You chose to ignore it');
+      return '<tr><td><strong>' + esc(f.csv) + '</strong></td><td>' + to + '</td><td>' + why + '</td><td><button type="button" class="aim-link" data-chg="' + i + '">Change</button></td></tr>';
+    }).join('');
+    return head + '<div class="ais-scroll"><table class="aitb"><tr><th>Your column</th><th>Becomes</th><th>Why</th><th></th></tr>' + rows + '</table></div>';
+  }
+  function stageDupes(){
+    return '<div class="aidu"><div class="ais-h"><strong>Maria Chen</strong><span>already in Salesforce</span></div><div class="ais-scroll"><table class="aitb"><tr><th></th><th>In your file</th><th>In Salesforce</th><th>What I\u2019ll do</th></tr>' +
+      '<tr><td>Title</td><td class="diff">VP Marketing</td><td class="diff">Marketing Lead</td><td>Update to VP Marketing</td></tr>' +
+      '<tr><td>Phone</td><td class="diff">(415) 555-0192</td><td class="diff">(415) 555-0188</td><td>Keep the Salesforce number, it\u2019s newer</td></tr>' +
+      '<tr><td>Email</td><td>m.chen@acme.com</td><td>m.chen@acme.com</td><td>Same</td></tr></table></div></div>' +
+      '<p class="ais-note">' + (U.id === 'noor' ? 'Matched with your Contacts duplicate rule: same email address.' : 'Matched by email address.') + '</p>';
+  }
+  function stageReady(){
+    var c = C();
+    return '<div class="success-stats aibar"><div class="success-stat"><div class="num">' + n(c.created) + '</div><div class="lbl">Will be added</div></div><div class="success-stat"><div class="num warn">' + (c.updated || c.skipped) + '</div><div class="lbl">' + (c.updated ? 'Will be updated' : 'Will be skipped') + '</div></div><div class="success-stat"><div class="num err">' + c.aside + '</div><div class="lbl">Set aside</div></div></div>' +
+      '<div class="ais-h" style="margin-top:18px"><strong>Set aside for you to fix</strong><span>6 rows, no last name</span></div><div class="ais-scroll"><table class="aitb"><tr><th>Row</th><th>First Name</th><th>Last Name</th><th>Email</th></tr>' +
+      '<tr><td>412</td><td>Kofi</td><td><span class="aimiss">missing</span></td><td>kofi@tidewater.io</td></tr><tr><td>1,087</td><td>Rina</td><td><span class="aimiss">missing</span></td><td>rina@harborlane.com</td></tr><tr><td>2,310</td><td>Marcus</td><td><span class="aimiss">missing</span></td><td>marcus@summitlabs.co</td></tr></table></div>' +
+      '<p class="ais-note"><button type="button" class="aim-link" data-act="dlrows">Download these 6 rows</button> to fix and import later.</p>' +
+      '<p class="ais-note">' + (U.org === 'Trial org' ? 'This is a trial org, a safe place to try things.' : 'This is your production org, so changes save right away. You can undo for 7 days.') + '</p>';
+  }
+  function stageTest(){
+    var t = testDone(), cards = testIdx().map(function(k, i){ var p = PEOPLE[k]; return card(p, i, result(p), false); }).join('');
+    return '<div class="ais-h"><strong>In Salesforce now</strong><span>' + (t.created + t.updated) + ' people</span></div><div class="airv-list">' + cards + '</div><div class="aiprog small"><div class="aiprog-f" style="width:2%"></div></div><p class="ais-note">5 of ' + n(C().total) + ' people. The rest are waiting for your OK.</p>';
+  }
+  function stageProgress(){ return '<div class="aiprog"><div class="aiprog-f go"></div></div><p class="ais-note" style="text-align:center">Saving to Salesforce\u2026</p>'; }
+  function stageDone(){
+    var c = C();
+    return '<div class="success-stats aibar"><div class="success-stat"><div class="num">' + n(c.created) + '</div><div class="lbl">Added</div></div><div class="success-stat"><div class="num warn">' + (c.updated || c.skipped) + '</div><div class="lbl">' + (c.updated ? 'Updated' : 'Skipped') + '</div></div><div class="success-stat"><div class="num err">' + c.aside + '</div><div class="lbl">Set aside</div></div></div><p class="ais-note" style="text-align:center">You can undo this import for 7 days.</p>';
+  }
+  function stageRecords(){
+    var rows = PEOPLE.map(function(p){ var r = result(p); return '<tr><td><strong>' + p.f + ' ' + p.l + '</strong><div class="ais-note" style="margin:0">' + p.t + ', ' + p.co + '</div></td><td>' + p.e + '</td><td>' + p.p + '</td><td><span class="airc-t ' + (r === 'Updated' ? 'up' : r === 'Skipped' ? 'sk' : 'new') + '">' + r + '</span></td></tr>'; }).join('');
+    return '<div class="ais-h"><strong>Imported ' + noun() + '</strong><span>First 8 of ' + n(C().total) + '</span></div><div class="ais-scroll"><table class="aitb"><tr><th>Name</th><th>Email</th><th>Phone</th><th>Result</th></tr>' + rows + '</table></div>';
+  }
+  function stageNote(){
+    return '<div class="ainote"><p class="ais-note" style="margin-top:0">A note you can send</p><div class="ainote-b" id="aiNote">Hi, I need to import Accounts into Salesforce, but my role doesn\u2019t allow it. Could you import them for me, or give me access? The file is LinkedInExport_Q4.csv (3,847 people). Thanks, ' + U.first + '</div><button type="button" class="btn btn-neutral" data-act="copy">Copy the note</button></div>';
+  }
+
+  /* ---- the flow ---- */
+  function applyMatches(){
+    fields.forEach(function(f){
+      if (f.csv === 'Industry') { if (S.noEdit) { f.status = 'ignored'; f.sf = null; } else { f.sf = 'Industry'; f.status = 'mapped'; } }
+      if (f.csv === 'Phone Number') { f.sf = 'Phone Number'; f.status = 'mapped'; }
+    });
+    if (S.same) { fields[2].status = 'ignored'; fields[2].sf = null; S.ignoreSir = true; }
+  }
+  var BASE = [{ id: 'sample', label: 'Use the sample file', primary: true }, { id: 'template', label: 'Get a template' }];
+  var BASEKW = [[/template/, 'template'], [/sample|yes|ok|use/, 'sample']];
+
+  function stepDrop(pre){ step('drop', (pre || '') + 'Drop your spreadsheet here, or use the sample file.', stageDrop(), BASE, BASEKW); }
+  function stepOther(){ step('other', 'Where is your data right now?', stageDrop(), [{ id: 'crm', label: 'Another CRM', primary: true }, { id: 'xl', label: 'Excel or Google Sheets' }, { id: 'unsure', label: 'I\u2019m not sure' }], [[/crm|system/, 'crm'], [/excel|sheet/, 'xl'], [/sure|know/, 'unsure']]); }
+  function stepExport(kind){
+    var m = kind === 'xl' ? 'Save it as a CSV or Excel file, then drop it here.' : kind === 'crm' ? 'In your other system, open your contacts and choose <strong>Export</strong>. Save the file, then drop it here.' : 'A good place to start: open your contacts in the other system and look for <strong>Export</strong>. Then drop the file here.';
+    step('export', m, stageExport(), BASE, BASEKW);
+  }
+  function stepHelp(){ step('help', 'No problem. Which sounds closest?', stageDrop(), [{ id: 'sheet', label: 'I have a spreadsheet', primary: true }, { id: 'other', label: 'It\u2019s in another system' }, { id: 'template', label: 'I have nothing yet' }], [[/spreadsheet|have/, 'sheet'], [/another|system/, 'other'], [/nothing|template/, 'template']]); }
+  function stepTemplate(){ step('template', 'Here\u2019s a template with the columns Salesforce expects. Fill it in, or try the sample file now.', stageTemplate(), [{ id: 'sample', label: 'Use the sample file', primary: true }], BASEKW); }
+  function stepAdmin(){ step('admin', 'Accounts need an admin. Want me to write a note to yours?', stageDrop(), [{ id: 'note', label: 'Write the note', primary: true }, { id: 'sheet', label: 'Import something else' }], [[/note|yes|write/, 'note']]); }
+
+  async function stepRead(same){
+    var me = S; S.same = !!same; S.stepName = 'reading'; applyMatches();
+    setActs([]); S.busy = true; setStage(skeleton()); typing(false); setMsg('Reading your file\u2026');
+    await wait(2300); if (S !== me) return; S.busy = false; stepPeek();
+  }
+  function stepPeek(){
+    var who = S.type === 'Leads' ? 'leads' : 'contacts';
+    var m = S.same ? 'Same as last time, so I used your saved matches. I found <strong>3,847 people</strong> and I\u2019ll treat them as <strong>contacts</strong>.'
+      : 'I found <strong>3,847 people</strong>. They look like people at companies, so I\u2019ll treat them as <strong>' + who + '</strong>.';
+    var acts = [{ id: 'peekok', label: 'Looks right', primary: true }];
+    if (can('Leads') && S.type !== 'Leads') acts.push({ id: 'asleads', label: 'They\u2019re leads' });
+    step('peek', m, stagePeek(), acts, [[/lead/, 'asleads'], [/right|yes|ok|continue/, 'peekok']]);
+  }
+  function stepReveal(){ step('reveal', 'Here\u2019s how 5 of your people will look in Salesforce. Is this <strong>Maria Chen</strong>?', stageReveal(), [{ id: 'revok', label: 'Yes, that\u2019s her', primary: true }, { id: 'revoff', label: 'Something looks off' }], [[/off|wrong|no/, 'revoff'], [/yes|her|right/, 'revok']], 1100); }
+  function stepDecision(){
+    if (S.same || fields[2].status !== 'unmapped') return stepMatches();
+    step('decision', 'One column needs you: <strong>Sir Name</strong>. Every row says \u201CSir Name\u201D, so I\u2019m not sure it\u2019s real data.', stageDecision(), [{ id: 'ignore', label: 'Ignore it', primary: true }, { id: 'mapit', label: 'Map it myself' }], [[/ignore|skip/, 'ignore'], [/map/, 'mapit']]);
+  }
+  function stepMatches(){
+    var ok = fields.filter(function(f){ return f.status === 'mapped'; }).length;
+    var m = S.noEdit ? '<strong>' + ok + '</strong> columns matched. I left out <strong>Industry</strong> because your role can\u2019t edit it.' : S.ignoreSir ? 'The other <strong>' + ok + '</strong> columns matched, and I accepted them.' : 'All <strong>' + ok + '</strong> columns matched, and I accepted them.';
+    step('matches', m, stageMatches(), matchActs(), [[/see|detail|how/, 'matchsee'], [/continue|yes|ok|good/, 'matchok']]);
+  }
+  function matchActs(){ return [{ id: 'matchok', label: 'Continue', primary: true }, { id: 'matchsee', label: S.matchOpen ? 'Hide the details' : 'See how I matched them' }]; }
+  function stepDupes(){ step('dupes', '<strong>18</strong> of these people are already in Salesforce. Here\u2019s one.', stageDupes(), [{ id: 'dupup', label: 'Update them (recommended)', primary: true }, { id: 'dupskip', label: 'Skip them' }], [[/skip/, 'dupskip'], [/update|yes|ok/, 'dupup']]); }
+  function stepReady(){
+    var c = C(), all = { id: 'all', label: 'Import ' + n(c.total) + ' people' }, t5 = { id: 'try5', label: 'Try 5 first' };
+    var first = U.imports === 0;
+    var acts = first ? [{ id: 'try5', label: 'Try 5 first (recommended)', primary: true }, all] : [{ id: 'all', label: all.label, primary: true }, t5];
+    var m = first ? 'You\u2019re ready. Since this is your first import, I\u2019d try 5 people first.' : 'You\u2019re ready. Here\u2019s what will happen.';
+    step('ready', m, stageReady(), acts, [[/try|five|test|\b5\b/, 'try5'], [/import|everything|yes|go/, 'all']]);
+  }
+  async function stepTest(){
+    var me = S; S.busy = true; S.stepName = 'testing'; setActs([]); setStage(skeleton()); typing(false); setMsg('Importing 5 people as a test\u2026');
+    await wait(1500); if (S !== me) return; S.busy = false; S.tested = true;
+    step('test', 'Done. These <strong>5 people</strong> are in Salesforce now. Do they look right?', stageTest(), [{ id: 'rest', label: 'Import the rest (' + n(restCount()) + ')', primary: true }, { id: 'undotest', label: 'Undo the 5' }], [[/undo|remove/, 'undotest'], [/rest|yes|import|right|ok/, 'rest']]);
+  }
+  async function stepImport(){
+    var me = S; S.busy = true; S.stepName = 'importing'; setActs([]); setStage(stageProgress()); typing(false); setMsg('Importing\u2026');
+    await wait(2000); if (S !== me) return; S.busy = false; stepDone();
+  }
+  function stepDone(){
+    var c = C();
+    step('done', 'All done. <strong>' + n(c.created) + '</strong> added' + (c.updated ? ', <strong>' + c.updated + '</strong> updated' : ', <strong>' + c.skipped + '</strong> skipped') + ', and <strong>' + c.aside + '</strong> set aside for you to fix.', stageDone(),
+      [{ id: 'view', label: 'View imported records', primary: true }, { id: 'undo', label: 'Undo this import' }, { id: 'again', label: 'Start another import' }], [[/undo/, 'undo'], [/view|record|show/, 'view'], [/another|again|new/, 'again']]);
+  }
+
+  /* ---- what each button does ---- */
+  H.sheet = function(){ stepDrop(); };
+  H.other = function(){ stepOther(); };
+  H.crm = function(){ stepExport('crm'); }; H.xl = function(){ stepExport('xl'); }; H.unsure = function(){ stepExport('unsure'); };
+  H.template = function(){ stepTemplate(); };
+  H.sample = function(){ stepRead(false); };
+  H.note = function(){ step('note', 'Here\u2019s a note you can send.', stageNote(), [{ id: 'sheet', label: 'Import something else', primary: true }], []); };
+  H.peekok = function(){ stepReveal(); };
+  H.asleads = function(){ S.type = 'Leads'; stepReveal(); };
+  H.revok = function(){ stepDecision(); };
+  H.revoff = function(){ S.matchOpen = true; stepDecision(); };
+  H.ignore = async function(){
+    var me = S; fields[2].status = 'ignored'; fields[2].sf = null; S.ignoreSir = true; S.busy = true;
+    setStage(stageIgnored()); setMsg('Okay. Sir Name won\u2019t be imported.'); await wait(1500); if (S !== me) return; S.busy = false; stepMatches();
+  };
+  H.mapit = function(){ openOverlay(2); setActs([{ id: 'ignore', label: 'Ignore it instead' }], [[/ignore|skip/, 'ignore']]); };
+  H.matchok = function(){ stepDupes(); };
+  H.matchsee = function(){ S.matchOpen = !S.matchOpen; setStage(stageMatches()); setActs(matchActs(), S.kw); };
+  H.dupup = function(){ S.dupe = 'update'; stepReady(); };
+  H.dupskip = function(){ S.dupe = 'skip'; stepReady(); };
+  H.try5 = function(){ stepTest(); };
+  H.all = function(){ stepImport(); };
+  H.rest = function(){ stepImport(); };
+  H.undotest = async function(){ var me = S; S.tested = false; S.busy = true; setStage(skeleton()); setMsg('Removed. Nothing is left in Salesforce.'); await wait(1300); if (S !== me) return; S.busy = false; stepReady(); };
+  H.view = function(){ step('records', 'Here are the first people from your import.', stageRecords(), [{ id: 'again', label: 'Start another import', primary: true }, { id: 'undo', label: 'Undo this import' }], [[/undo/, 'undo'], [/another|again/, 'again']]); };
+  H.undo = function(){ step('undone', 'Undone. Nothing from this import is left in Salesforce.', '<div class="aiempty"><span>\u2713</span><p>Your Salesforce data is exactly as it was.</p></div>', [{ id: 'again', label: 'Start another import', primary: true }], [[/another|again|yes/, 'again']]); };
+  H.again = function(){ resetToLanding(); };
+  window.aiAfterMap = function(){
+    if (!S) return;
+    if (S.stepName === 'decision' || (S.acts.length === 1 && S.acts[0].id === 'ignore')) { if (fields[2].status === 'mapped') { S.ignoreSir = false; stepMatches(); } }
+    else if (S.stepName === 'matches') { setStage(stageMatches()); }
+  };
+
+  /* ---- starting, typing and the router ---- */
+  function parseLanding(t){
+    var x = t.toLowerCase();
+    if (/lead/.test(x) && can('Leads')) S.type = 'Leads';
+    if (/same as last|last time/.test(x) && U.id === 'noor') return 'same';
+    if (/account/.test(x) && !can('Accounts')) return 'accounts';
+    if (/template/.test(x)) return 'template';
+    if (/sample/.test(x)) return 'sample';
+    if (/not sure|help|don.?t know/.test(x)) return 'help';
+    if (/another|crm|hubspot|system|export/.test(x)) return 'other';
+    if (/update/.test(x)) return 'update';
+    return 'sheet';
+  }
+  function begin(id, label){
+    if (S.step !== 'landing') return;
+    S.step = 'exp'; S.hist.push('You: ' + label);
+    expand();
+    var go = { sheet: function(){ stepDrop(); }, other: stepOther, help: stepHelp, template: stepTemplate, sample: function(){ stepRead(false); }, same: function(){ stepRead(true); }, accounts: stepAdmin, update: function(){ stepDrop('Got it, I\u2019ll update records you already have. '); } }[id] || stepDrop;
+    setTimeout(go, FAST ? 1 : 350);
+  }
+  function findAct(id){ return S.acts.filter(function(a){ return a.id === id; })[0]; }
+  function goClassic(){ classic = true; popOpen(false); _goTo(1); }
+  function routeText(t){
+    if (S.busy) return;
+    var x = t.toLowerCase(); S.hist.push('You: ' + t);
+    if (/classic|advanced/.test(x)) return goClassic();
+    if (/account/.test(x) && !can('Accounts')) return stepAdmin();
+    for (var i = 0; i < S.kw.length; i++) { if (S.kw[i][0].test(x)) { var a = findAct(S.kw[i][1]); if (a) return choose(a); } }
+    if (/^(yes|yep|ok|okay|sure|continue|next|go|looks right)\b/.test(x)) { var p = S.acts.filter(function(a){ return a.primary; })[0]; if (p) return choose(p); }
+    var m = $('aiMsg'); var old = m.querySelector('.aix-sub'); if (old) old.remove();
+    var s = document.createElement('div'); s.className = 'aix-sub'; s.textContent = 'I didn\u2019t quite catch that. The buttons below are what I can do right now.'; m.appendChild(s);
+  }
+  $('aiForm').addEventListener('submit', function(e){
+    e.preventDefault(); var v = $('aiInput').value.trim(); if (!v || !S) return; $('aiInput').value = '';
+    if (S.step === 'landing') begin(parseLanding(v), v); else routeText(v);
+  });
+  $('aiClip').addEventListener('click', function(){ $('aiFile').click(); });
+  $('aiFile').addEventListener('change', function(){ if (!S) return; if (S.step === 'landing') begin('sample', 'I added a file'); else { S.hist.push('You: I added a file'); if (!S.busy && (S.stepName === 'drop' || S.stepName === 'export' || S.stepName === 'help' || S.stepName === 'other' || S.stepName === 'template')) stepRead(false); } });
+  $('aiEarlier').addEventListener('click', function(){ var h = $('aiHist'); h.hidden = !h.hidden; $('aiEarlier').setAttribute('aria-expanded', h.hidden ? 'false' : 'true'); renderHist(); });
+  document.addEventListener('dragover', function(e){ if (e.target.closest && e.target.closest('#aiHero, #aiStage')) e.preventDefault(); });
+  document.addEventListener('drop', function(e){
+    if (!(e.target.closest && e.target.closest('#aiHero, #aiStage')) || !S) return; e.preventDefault();
+    if (S.step === 'landing') begin('sample', 'I dropped a file'); else if (!S.busy && ['drop', 'export', 'help', 'other', 'template'].indexOf(S.stepName) > -1) { S.hist.push('You: I dropped a file'); stepRead(false); }
+  });
+  document.addEventListener('click', function(e){
+    var t = e.target.closest ? e.target.closest('[data-chip],[data-act],[data-chg],[data-user],#aiuBtn') : null;
+    if (!t) { var pp = $('aiuPop'); if (pp && !pp.hidden && !(e.target.closest && e.target.closest('#aiu'))) popOpen(false); return; }
+    if (t.id === 'aiuBtn') { popOpen($('aiuPop').hidden); return; }
+    if (t.hasAttribute('data-user')) { setUser(t.getAttribute('data-user')); return; }
+    if (t.hasAttribute('data-chip')) { var id = t.getAttribute('data-chip'); begin(id, t.textContent); return; }
+    if (t.hasAttribute('data-chg')) { openOverlay(parseInt(t.getAttribute('data-chg'), 10)); return; }
+    var a = t.getAttribute('data-act');
+    if (a === 'classic') goClassic();
+    else if (a === 'choose') $('aiFile').click();
+    else if (a === 'dl') { try { var csv = 'First Name,Last Name,Company,Title,Email,Phone Number,Department,Industry\nMaria,Chen,Acme Co,VP Marketing,m.chen@acme.com,415-555-0192,Marketing,Software\n'; var b = new Blob([csv], { type: 'text/csv' }); var l = document.createElement('a'); l.href = URL.createObjectURL(b); l.download = 'salesforce-import-template.csv'; document.body.appendChild(l); l.click(); l.remove(); } catch (er) {} }
+    else if (a === 'dlrows') { try { var c2 = 'Row,First Name,Last Name,Email\n412,Kofi,,kofi@tidewater.io\n1087,Rina,,rina@harborlane.com\n2310,Marcus,,marcus@summitlabs.co\n'; var b2 = new Blob([c2], { type: 'text/csv' }); var l2 = document.createElement('a'); l2.href = URL.createObjectURL(b2); l2.download = 'rows-to-fix.csv'; document.body.appendChild(l2); l2.click(); l2.remove(); } catch (er2) {} }
+    else if (a === 'copy') { try { navigator.clipboard.writeText($('aiNote').textContent); t.textContent = 'Copied'; } catch (er3) { t.textContent = 'Select the text and copy it'; } }
+  });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') popOpen(false); });
+  window.aiState = function(){ return S; };
+
+  S = newState(); renderHero(); renderAvatar();
+})();
 </script>
 </body>
 </html>
