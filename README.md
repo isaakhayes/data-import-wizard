@@ -3,6 +3,7 @@
 Interactive Salesforce Data Import Wizard demo, plus a concept version where AI suggests the matches.
 
 **Try it:** https://isaakhayes.github.io/data-import-wizard/
+
 **AI-forward concept:** https://isaakhayes.github.io/data-import-wizard/#ai
 
 ## Two versions in one file
